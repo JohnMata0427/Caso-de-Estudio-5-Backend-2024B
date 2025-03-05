@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -56,7 +55,7 @@ public class Conferencista {
   @Column(nullable = false)
   private String empresa;
 
-  @OneToMany(mappedBy = "conferencista", cascade = CascadeType.REMOVE, orphanRemoval = true)
+  @OneToMany(mappedBy = "conferencista")
   @JsonIgnore
   private List<Reserva> reservas;
 }
