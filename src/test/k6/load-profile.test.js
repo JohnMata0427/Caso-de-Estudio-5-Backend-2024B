@@ -3,12 +3,13 @@ import { check } from "k6";
 
 export const options = {
   stages: [
-    { duration: "10s", target: 1 }, // calentar con 1 usuarios durante 10 segundos
-    { duration: "10s", target: 1 }, // incrementar a 1 usuarios durante 10 segundos
+    { duration: "5s", target: 50 }, // calentar con 100 usuarios durante 5 segundos
+    { duration: "10s", target: 50 }, // incrementar a 200 usuarios durante 10 segundos
   ],
 };
 
-const token = "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqaG9ubWF0YTA0MjdAZ21haWwuY29tIiwiaWF0IjoxNzQxMTkzMjY5LCJleHAiOjE3NDEyMDc2Njl9.yOWzVDv0lyNs_E03pNHYG8MrwsPPj8Yi_SwTg4Qu3gCY5BVabJQxSdYRm8EiPtdT"
+const token =
+  "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqaG9ubWF0YTA0MjdAZ21haWwuY29tIiwiaWF0IjoxNzQxMTkzMjY5LCJleHAiOjE3NDEyMDc2Njl9.yOWzVDv0lyNs_E03pNHYG8MrwsPPj8Yi_SwTg4Qu3gCY5BVabJQxSdYRm8EiPtdT";
 
 export default function () {
   const res = http.get(
