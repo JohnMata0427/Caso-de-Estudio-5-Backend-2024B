@@ -40,7 +40,7 @@ public class Auditorio {
   @Column(nullable = false)
   private String descripcion;
 
-  @OneToMany(mappedBy = "auditorio", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "auditorio", cascade = CascadeType.REMOVE, orphanRemoval = true)
   @JsonIgnore
   private List<Reserva> reservas;
 }

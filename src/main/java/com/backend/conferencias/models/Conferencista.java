@@ -56,7 +56,7 @@ public class Conferencista {
   @Column(nullable = false)
   private String empresa;
 
-  @OneToMany(mappedBy = "conferencista", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "conferencista", cascade = CascadeType.REMOVE, orphanRemoval = true)
   @JsonIgnore
   private List<Reserva> reservas;
 }

@@ -45,6 +45,9 @@ public class AuditorioService {
   public Auditorio crearAuditorio(AuditorioDTO auditorio) {
     String codigo = auditorio.getCodigo();
 
+    if (auditorio.matchCodigoAndUbicacion())
+      throw new RuntimeException("El código y la ubicación deben tener el mismo número de edificio, piso y aula (Ejemplo: ED6P2A10 y Edificio 6, Piso 2, Aula 10)");
+
     if (auditorioRepository.existsByCodigo(codigo))
       throw new RuntimeException("Ya existe una auditorio con el código " + codigo);
 
