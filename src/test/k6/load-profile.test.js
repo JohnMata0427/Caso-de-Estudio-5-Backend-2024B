@@ -11,7 +11,7 @@ export const options = {
 const token = "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqaG9ubWF0YTA0MjdAZ21haWwuY29tIiwiaWF0IjoxNzQxMTkzMjY5LCJleHAiOjE3NDEyMDc2Njl9.yOWzVDv0lyNs_E03pNHYG8MrwsPPj8Yi_SwTg4Qu3gCY5BVabJQxSdYRm8EiPtdT"
 
 export default function () {
-  const res = http.post(
+  const res = http.get(
     "https://sharp-lisa-jhonmata0427s-projects-a5f958cc.koyeb.app/api/v1/auth/profile",
     {
       headers: {

@@ -37,12 +37,12 @@ public class Reserva {
   private Long id_auditorio;
 
   @ManyToOne
-  @JoinColumn(name = "id_conferencista")
+  @JoinColumn(name = "id_conferencista", insertable = false, updatable = false)
   @JsonIgnore
   private Conferencista conferencista;
 
   @ManyToOne
-  @JoinColumn(name = "id_auditorio")
+  @JoinColumn(name = "id_auditorio", insertable = false, updatable = false)
   @JsonIgnore
   private Auditorio auditorio;
 }
