@@ -46,7 +46,8 @@ public class ConferencistaDTO {
   @Schema(description = "Género del conferencista", example = "masculino", required = false, defaultValue = "masculino", allowableValues = {
       "masculino", "femenino" })
   @NotNull(message = "El género es obligatorio")
-  private Genero genero;
+  @Pattern(regexp = "^(masculino|femenino)$", message = "El género solo puede ser 'masculino' o 'femenino'")
+  private String genero;
 
   @Schema(description = "Ciudad de residencia del conferencista", example = "Quito", pattern = "^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$", minLength = 3, maxLength = 50)
   @NotBlank(message = "La ciudad es obligatoria")
@@ -85,11 +86,5 @@ public class ConferencistaDTO {
   public boolean isBetween18And70() {
     Integer edad = LocalDate.now().getYear() - fecha_nacimiento.getYear();
     return edad >= 18 && edad <= 70;
-  }
-
-  @Hidden
-  public enum Genero {
-    masculino,
-    femenino
   }
 }

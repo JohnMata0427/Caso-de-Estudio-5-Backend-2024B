@@ -6,11 +6,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +24,7 @@ public class AuditorioDTO {
   @Null(message = "El id de la auditorio no debe ser enviado, ya que se genera automáticamente")
   private Long id;
 
-  @Schema(description = "Código único de la auditorio", example = "E6P2A10", pattern = "^ED\\d{1,2}P\\d{1,2}A\\d{1,3}$")
+  @Schema(description = "Código único de la auditorio", example = "ED6P2A10", pattern = "^ED\\d{1,2}P\\d{1,2}A\\d{1,3}$")
   @NotBlank(message = "El código de la auditorio es obligatorio")
   @Pattern(regexp = "^ED\\d{1,2}P\\d{1,2}A\\d{1,3}$", message = "El código de la auditorio debe seguir el formato 'ED#P#A#' donde # son números")
   private String codigo;
@@ -42,7 +42,7 @@ public class AuditorioDTO {
 
   @Schema(description = "Capacidad de la auditorio", example = "20", minimum = "15", maximum = "35")
   @NotNull(message = "La capacidad es obligatoria")
-  @Positive(message = "La capacidad debe ser un número positivo")
+  @Min(value = 15, message = "La capacidad no puede ser menor a 15 personas")
   @Max(value = 35, message = "La capacidad no puede ser mayor a 35 personas")
   @Digits(integer = 2, fraction = 0, message = "La capacidad debe ser un número entero de máximo 2 dígitos (valor máximo: 35)")
   private Integer capacidad;

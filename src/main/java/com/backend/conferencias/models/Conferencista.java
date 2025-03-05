@@ -36,7 +36,7 @@ public class Conferencista {
   private String cedula;
 
   @Column(nullable = false)
-  private Genero genero;
+  private String genero;
 
   @Column(nullable = false)
   private String ciudad;
@@ -59,9 +59,4 @@ public class Conferencista {
   @OneToMany(mappedBy = "conferencista", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonIgnore
   private List<Reserva> reservas;
-
-  public enum Genero {
-    masculino,
-    femenino
-  }
 }
