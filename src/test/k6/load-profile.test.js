@@ -8,16 +8,15 @@ export const options = {
   ],
 };
 
+const token = ""
+
 export default function () {
   const res = http.post(
-    "https://sharp-lisa-jhonmata0427s-projects-a5f958cc.koyeb.app/api/v1/auth/login",
-    JSON.stringify({
-      email: "jhonmata0427@gmail.com",
-      password: "Jjmm04272003ce5.",
-    }),
+    "https://sharp-lisa-jhonmata0427s-projects-a5f958cc.koyeb.app/api/v1/auth/profile",
     {
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     }
   );
@@ -27,6 +26,6 @@ export default function () {
     "Tiempo de respuesta < 1s": ({ timings }) => timings.duration < 1000,
     "Contenido de respuesta está en formato JSON": ({ headers }) =>
       headers["Content-Type"] === "application/json",
-    "Se obtiene el token": (r) => !!r.json().token,
+    "Se obtiene el nombre del usuario": (r) => !!r.json().usuario.nombre,
   });
 }

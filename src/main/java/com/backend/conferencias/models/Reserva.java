@@ -2,6 +2,7 @@ package com.backend.conferencias.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,12 +38,12 @@ public class Reserva {
   private Long id_auditorio;
 
   @ManyToOne
-  @JoinColumn(name = "id_conferencista", insertable = false, updatable = false)
+  @JoinColumn(name = "id_conferencista", nullable = false)
   @JsonIgnore
   private Conferencista conferencista;
 
   @ManyToOne
-  @JoinColumn(name = "id_auditorio", insertable = false, updatable = false)
+  @JoinColumn(name = "id_auditorio", nullable = false)
   @JsonIgnore
   private Auditorio auditorio;
 }

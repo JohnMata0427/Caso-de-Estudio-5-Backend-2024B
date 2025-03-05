@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class Auditorio {
   @Column(nullable = false)
   private String descripcion;
 
-  @OneToMany(mappedBy = "auditorio")
+  @OneToMany(mappedBy = "auditorio", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonIgnore
   private List<Reserva> reservas;
 }
