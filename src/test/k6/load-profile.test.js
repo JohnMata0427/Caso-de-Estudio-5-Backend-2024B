@@ -8,7 +8,7 @@ export const options = {
   ],
 };
 
-const token = ""
+const token = "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqaG9ubWF0YTA0MjdAZ21haWwuY29tIiwiaWF0IjoxNzQxMTkzMjY5LCJleHAiOjE3NDEyMDc2Njl9.yOWzVDv0lyNs_E03pNHYG8MrwsPPj8Yi_SwTg4Qu3gCY5BVabJQxSdYRm8EiPtdT"
 
 export default function () {
   const res = http.post(
